@@ -23,4 +23,4 @@ jobs:
     - name: Build the Docker image
       run: docker build -t counter-app-image-from-ci-cd .
     - name: Push to dockerhub
-      run: docker push acschandra/counter-app-image-from-ci-cd:latest
+      run: docker push counter-app-image-from-ci-cd:latest
