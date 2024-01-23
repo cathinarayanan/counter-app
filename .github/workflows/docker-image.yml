@@ -1,0 +1,26 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "dev", "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Login Dockerhub
+      env: 
+        DOCKER_USERNAME: ${{secrets.DOCKER_REGISTRY_USERNAME}}
+        DOCKER_PASSWORD: ${{secrets.DOCKER_REGISTRY_PASSWORD}}
+      run: docker login -u DOCKER_USERNAME -p DOCKER_PASSWORD
+    
+    - name: Build the Docker image
+      run: docker build -t counter-app-image-from-ci-cd
+    - name: Push to dockerhub
+      run: docker push cathinarayanan/counter-app-image-from-ci-cd:latest
