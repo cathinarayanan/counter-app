@@ -11,7 +11,7 @@ env:
   SERVICE: counter-app
   REGION: us-east4
   PROJECT_ID: gothic-oven-410701
-  IMAGE_NAME: acschandra/counter-app-image-from-ci-cd:latest
+  IMAGE_NAME: acschandra/counter-app-image-from-ci-cd
 
 jobs:
 
