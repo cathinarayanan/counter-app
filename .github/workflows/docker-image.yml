@@ -29,12 +29,12 @@ jobs:
     
     - name: Build the Docker image
       run: |
-        BUILD_NAME_WITH_DOT="${env.IMAGE_NAME} ."
+        BUILD_NAME_WITH_DOT="${{ env.IMAGE_NAME }} ."
         echo "BUILD_NAME_WITH_DOT : $BUILD_NAME_WITH_DOT"
         docker build -t $BUILD_NAME_WITH_DOT
     - name: Push to dockerhub
       run: |
-        BUILD_NAME_WITH_LATEST="${env.IMAGE_NAME}:latest"
+        BUILD_NAME_WITH_LATEST="${{ env.IMAGE_NAME }}:latest"
         echo "BUILD_NAME_WITH_LATEST : BUILD_NAME_WITH_LATEST"
         docker push $BUILD_NAME_WITH_LATEST
 
